@@ -190,13 +190,13 @@ while (cap.isOpened()):
                 cv2.putText(frame, "ZHE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
     if 0.0 <= angle_t <= 30.0:
-        if count_defects == 1:
+        if count_defects <= 1:
             if 0.66 <= solidity <= 0.76:
                 cv2.putText(frame, "EE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
     if 0.0 <= angle_t <= 30.0:
-        if count_defects == 1:
-            if 0.80 <= solidity <= 0.84:
+        if count_defects <= 1:
+            if 0.80 <= solidity <= 0.87:
                 cv2.putText(frame, "EE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
     if 145.0 <= angle_t <= 180.0:
