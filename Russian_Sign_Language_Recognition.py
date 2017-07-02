@@ -147,9 +147,13 @@ while (cap.isOpened()):
     ############################################
     # RECOGNITION
 
+    if area_of_circle - area > 33000.0:
+           cv2.putText(frame, "No hand", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (50,0,255), 2, cv2.LINE_AA)
+    
+
     if 115.0 <= angle_t <= 143.0:
         if 0.96 <= solidity <= 0.99:
-            if count_defects == 0:
+            if count_defects <= 1:
                 cv2.putText(frame, "A", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
 
@@ -164,7 +168,7 @@ while (cap.isOpened()):
 
 
     if 162.0 <= angle_t <= 180.0:
-        if count_defects == 1:
+        if 1 <= count_defects <= 2:
             if 0.86 <= solidity <= 0.95:
                 cv2.putText(frame, "VE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
             if 0.69 <= solidity <= 0.79:
@@ -176,13 +180,13 @@ while (cap.isOpened()):
                 cv2.putText(frame, "VE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
     if 136.0 <= angle_t <= 170.0:
-        if count_defects == 0:
+        if count_defects <= 1:
             if 0.87 <= solidity <= 0.97:
                 cv2.putText(frame, "E", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
     if 110.0 <= angle_t <= 126.0:
-        if count_defects == 0:
-            if 0.91 <= solidity <= 0.95:
+        if count_defects <= 1:
+            if 0.87 <= solidity <= 0.95:
                 cv2.putText(frame, "ZHE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
     if 0.0 <= angle_t <= 30.0:
@@ -190,13 +194,18 @@ while (cap.isOpened()):
             if 0.66 <= solidity <= 0.76:
                 cv2.putText(frame, "EE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
 
+    if 0.0 <= angle_t <= 30.0:
+        if count_defects == 1:
+            if 0.80 <= solidity <= 0.84:
+                cv2.putText(frame, "EE", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
+
     if 145.0 <= angle_t <= 180.0:
-        if count_defects == 2:
+        if 2 <= count_defects <= 3:
             if 0.65 <= solidity <= 0.74:
                 cv2.putText(frame, "EN", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
     elif 0.0 <= angle_t <= 16.0:
-        if count_defects == 2:
+        if 2 <= count_defects <= 3:
             if 0.61 <= solidity <= 0.75:
                 cv2.putText(frame, "EN", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
@@ -208,17 +217,17 @@ while (cap.isOpened()):
 
     elif 0.0 <= angle_t <= 30.0:
         if count_defects > 1:
-            if 0.73 <= solidity <= 0.79:
+            if 0.73 <= solidity <= 0.89:
                 cv2.putText(frame, "O", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
                    
     if 114.0 <= angle_t <= 137.0:
-        if count_defects == 1:
+        if count_defects <= 2:
             if 0.60 <= solidity <= 0.75:
                 cv2.putText(frame, "ES", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
     if 0.0 <= angle_t <= 70.0:
-        if count_defects == 0:
+        if count_defects <= 1:
             if 0.70 <= solidity <= 0.75:
                 cv2.putText(frame, "OO", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
@@ -233,25 +242,20 @@ while (cap.isOpened()):
                 cv2.putText(frame, "SHA", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
     if 160.0 <= angle_t <= 180.0:
-        if count_defects == 0:
+        if count_defects <= 1:
             if 0.55 <= solidity <= 0.70:
                 cv2.putText(frame, "IH*", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
-    if 140.0 <= angle_t <= 165.0:
-        if count_defects == 0:
-            if 0.75 <= solidity <= 0.80:
-               cv2.putText(frame, "YOO", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
+    if 125.0 <= angle_t <= 165.0:
+        if count_defects <= 1:
+            if 0.75 <= solidity <= 0.86:
+                if area_of_circle - area < 33000.0:
+                    cv2.putText(frame, "YOO", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
     
     if 125.0 <= angle_t <= 155.0:
-        if count_defects == 0:
+        if count_defects <= 2:
             if 0.58 <= solidity <= 0.73:
                cv2.putText(frame, "m. znak", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (200, 200, 200), 2, cv2.LINE_AA)
-     
-
-    else:
-        if area_of_circle - area > 33000.0:
-           cv2.putText(frame, "No hand", (60,50), cv2.FONT_HERSHEY_SIMPLEX, 2 , (50,0,255), 2, cv2.LINE_AA)
-    
 
 
 
